@@ -1,1 +1,1 @@
-# reward_competition_ephys_analysis_with_omission_and_divider_controls
+# Reward Competition Ephys Analysis with Omission and Divider Controls
