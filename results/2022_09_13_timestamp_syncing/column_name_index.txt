@@ -1,0 +1,34 @@
+raw directory
+- raw_group0.dat
+    - voltage_value: Array with voltage measurement for each channel at each timestamp
+- timestamps.dat
+    - voltage_time_stamp: The time stamp of each voltage measurement
+
+parent directory
+- 1.videoTimeStamps.cameraHWSync
+    - frame_number: Calculated by getting the index of each video time stamp tuple 
+    - PosTimestamp: The time stamp of each video frame
+    - HWframeCount: Unknown value. Starts at 30742 and increases by 1 for each tuple  
+    - HWTimestamp: Unknown value. All zeroes
+    - video_time: Calculated by dividing the frame number by the fps(frames per second) 
+    - video_seconds: video_time, but rounded to seconds  	
+    - These are filled in versions of the above collumns with the value from the most recent previous cell
+        - filled_PosTimestamp 	
+        - filledHWframeCount 	
+        - filled_frame_number 	
+        - filled_video_time 	
+        - filled_video_seconds 	
+
+DIO directory
+- dio_ECU_Din1.dat
+    - time: The time stamp the corresponds to the DIN input
+    - state: Binary state of whether there is input from DIN or not 	
+    - trial_number: Calculated by adding 1 to every time there is a DIN input
+    - These are filled in versions of the above collumns with the value from the most recent previous cell
+        - filled_state 	
+        - filled_trial_number
+
+ss_output directory (Spike sorting with Spike interface)
+- firings.npz
+    - unit_id: All the units that had a spike train for the given timestamp 	
+    - number_of_units: Calculated by counting the number of units that had a spike train
