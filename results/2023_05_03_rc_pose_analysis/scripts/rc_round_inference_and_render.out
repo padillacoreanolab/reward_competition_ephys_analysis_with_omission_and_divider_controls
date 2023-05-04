@@ -1,0 +1,48 @@
+inference /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-04 13:22:19.255357
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/models/round_4_baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_03_rc_pose_analysis/predictions/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.round_4.predictions.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
