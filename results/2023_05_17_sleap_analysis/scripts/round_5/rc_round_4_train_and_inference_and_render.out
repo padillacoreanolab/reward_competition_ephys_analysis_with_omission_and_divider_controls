@@ -1,0 +1,1571 @@
+training with model /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup
+INFO:sleap.nn.training:Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+INFO:sleap.nn.training:Training labels file: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/labeled_frames/round_5/rc_om_and_comp_combined.fixed.mp4.labeled.round_5.pkg.pkg.slp
+INFO:sleap.nn.training:Training profile: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/scripts/round_5/baseline_medium_rf.bottomup.json
+INFO:sleap.nn.training:
+INFO:sleap.nn.training:Arguments:
+INFO:sleap.nn.training:{
+    "training_job_path": "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/scripts/round_5/baseline_medium_rf.bottomup.json",
+    "labels_path": "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/labeled_frames/round_5/rc_om_and_comp_combined.fixed.mp4.labeled.round_5.pkg.pkg.slp",
+    "video_paths": [
+        ""
+    ],
+    "val_labels": null,
+    "test_labels": null,
+    "tensorboard": false,
+    "save_viz": false,
+    "zmq": false,
+    "run_name": "",
+    "prefix": "",
+    "suffix": "",
+    "cpu": false,
+    "first_gpu": false,
+    "last_gpu": false,
+    "gpu": "auto"
+}
+INFO:sleap.nn.training:
+INFO:sleap.nn.training:Training job:
+INFO:sleap.nn.training:{
+    "data": {
+        "labels": {
+            "training_labels": null,
+            "validation_labels": null,
+            "validation_fraction": 0.1,
+            "test_labels": null,
+            "split_by_inds": false,
+            "training_inds": null,
+            "validation_inds": null,
+            "test_inds": null,
+            "search_path_hints": [],
+            "skeletons": []
+        },
+        "preprocessing": {
+            "ensure_rgb": false,
+            "ensure_grayscale": false,
+            "imagenet_mode": null,
+            "input_scaling": 1.0,
+            "pad_to_stride": null,
+            "resize_and_pad_to_target": true,
+            "target_height": null,
+            "target_width": null
+        },
+        "instance_cropping": {
+            "center_on_part": null,
+            "crop_size": null,
+            "crop_size_detection_padding": 16
+        }
+    },
+    "model": {
+        "backbone": {
+            "leap": null,
+            "unet": {
+                "stem_stride": null,
+                "max_stride": 32,
+                "output_stride": 4,
+                "filters": 16,
+                "filters_rate": 2.0,
+                "middle_block": true,
+                "up_interpolate": true,
+                "stacks": 1
+            },
+            "hourglass": null,
+            "resnet": null,
+            "pretrained_encoder": null
+        },
+        "heads": {
+            "single_instance": null,
+            "centroid": null,
+            "centered_instance": null,
+            "multi_instance": {
+                "confmaps": {
+                    "part_names": null,
+                    "sigma": 2.5,
+                    "output_stride": 4,
+                    "loss_weight": 1.0,
+                    "offset_refinement": false
+                },
+                "pafs": {
+                    "edges": null,
+                    "sigma": 75.0,
+                    "output_stride": 8,
+                    "loss_weight": 1.0
+                }
+            },
+            "multi_class_bottomup": null,
+            "multi_class_topdown": null
+        }
+    },
+    "optimization": {
+        "preload_data": true,
+        "augmentation_config": {
+            "rotate": true,
+            "rotation_min_angle": -15.0,
+            "rotation_max_angle": 15.0,
+            "translate": false,
+            "translate_min": -5,
+            "translate_max": 5,
+            "scale": false,
+            "scale_min": 0.9,
+            "scale_max": 1.1,
+            "uniform_noise": false,
+            "uniform_noise_min_val": 0.0,
+            "uniform_noise_max_val": 10.0,
+            "gaussian_noise": false,
+            "gaussian_noise_mean": 5.0,
+            "gaussian_noise_stddev": 1.0,
+            "contrast": false,
+            "contrast_min_gamma": 0.5,
+            "contrast_max_gamma": 2.0,
+            "brightness": false,
+            "brightness_min_val": 0.0,
+            "brightness_max_val": 10.0,
+            "random_crop": false,
+            "random_crop_height": 256,
+            "random_crop_width": 256,
+            "random_flip": false,
+            "flip_horizontal": true
+        },
+        "online_shuffling": true,
+        "shuffle_buffer_size": 128,
+        "prefetch": true,
+        "batch_size": 4,
+        "batches_per_epoch": null,
+        "min_batches_per_epoch": 200,
+        "val_batches_per_epoch": null,
+        "min_val_batches_per_epoch": 10,
+        "epochs": 200,
+        "optimizer": "adam",
+        "initial_learning_rate": 0.0001,
+        "learning_rate_schedule": {
+            "reduce_on_plateau": true,
+            "reduction_factor": 0.5,
+            "plateau_min_delta": 1e-08,
+            "plateau_patience": 8,
+            "plateau_cooldown": 3,
+            "min_learning_rate": 1e-08
+        },
+        "hard_keypoint_mining": {
+            "online_mining": false,
+            "hard_to_easy_ratio": 2.0,
+            "min_hard_keypoints": 2,
+            "max_hard_keypoints": null,
+            "loss_scale": 5.0
+        },
+        "early_stopping": {
+            "stop_training_on_plateau": true,
+            "plateau_min_delta": 1e-08,
+            "plateau_patience": 10
+        }
+    },
+    "outputs": {
+        "save_outputs": true,
+        "run_name": "baseline_medium_rf.bottomup",
+        "run_name_prefix": "",
+        "run_name_suffix": null,
+        "runs_folder": "models",
+        "tags": [],
+        "save_visualizations": true,
+        "delete_viz_images": true,
+        "zip_outputs": false,
+        "log_to_csv": true,
+        "checkpointing": {
+            "initial_model": false,
+            "best_model": true,
+            "every_epoch": false,
+            "latest_model": false,
+            "final_model": false
+        },
+        "tensorboard": {
+            "write_logs": false,
+            "loss_frequency": "epoch",
+            "architecture_graph": false,
+            "profile_graph": false,
+            "visualizations": true
+        },
+        "zmq": {
+            "subscribe_to_controller": false,
+            "controller_address": "tcp://127.0.0.1:9000",
+            "controller_polling_timeout": 10,
+            "publish_updates": false,
+            "publish_address": "tcp://127.0.0.1:9001"
+        }
+    },
+    "name": "",
+    "description": "",
+    "sleap_version": "1.2.9",
+    "filename": "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/scripts/round_5/baseline_medium_rf.bottomup.json"
+}
+INFO:sleap.nn.training:
+INFO:sleap.nn.training:Auto-selected GPU 0 with 11006 MiB of free memory.
+INFO:sleap.nn.training:Using GPU 0 for acceleration.
+INFO:sleap.nn.training:Disabled GPU memory pre-allocation.
+INFO:sleap.nn.training:System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+INFO:sleap.nn.training:
+INFO:sleap.nn.training:Initializing trainer...
+INFO:sleap.nn.training:Loading training labels from: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/labeled_frames/round_5/rc_om_and_comp_combined.fixed.mp4.labeled.round_5.pkg.pkg.slp
+INFO:sleap.nn.training:Creating training and validation splits from validation fraction: 0.1
+INFO:sleap.nn.training:  Splits: Training = 355 / Validation = 39.
+INFO:sleap.nn.training:Setting up for training...
+INFO:sleap.nn.training:Setting up pipeline builders...
+INFO:sleap.nn.training:Setting up model...
+INFO:sleap.nn.training:Building test pipeline...
+INFO:sleap.nn.training:Loaded test example. [2.114s]
+INFO:sleap.nn.training:  Input shape: (1088, 1920, 3)
+INFO:sleap.nn.training:Created Keras model.
+INFO:sleap.nn.training:  Backbone: UNet(stacks=1, filters=16, filters_rate=2.0, kernel_size=3, stem_kernel_size=7, convs_per_block=2, stem_blocks=0, down_blocks=5, middle_block=True, up_blocks=3, up_interpolate=True, block_contraction=False)
+INFO:sleap.nn.training:  Max stride: 32
+INFO:sleap.nn.training:  Parameters: 7,818,146
+INFO:sleap.nn.training:  Heads: 
+INFO:sleap.nn.training:    [0] = MultiInstanceConfmapsHead(part_names=['left_ear', 'right_ear', 'nose', 'tail_base', 'thorax', 'forehead'], sigma=2.5, output_stride=4, loss_weight=1.0)
+INFO:sleap.nn.training:    [1] = PartAffinityFieldsHead(edges=[('nose', 'forehead'), ('forehead', 'left_ear'), ('forehead', 'right_ear'), ('left_ear', 'thorax'), ('right_ear', 'thorax'), ('thorax', 'tail_base')], sigma=75.0, output_stride=8, loss_weight=1.0)
+INFO:sleap.nn.training:  Outputs: 
+INFO:sleap.nn.training:    [0] = KerasTensor(type_spec=TensorSpec(shape=(None, 272, 480, 6), dtype=tf.float32, name=None), name='MultiInstanceConfmapsHead/BiasAdd:0', description="created by layer 'MultiInstanceConfmapsHead'")
+INFO:sleap.nn.training:    [1] = KerasTensor(type_spec=TensorSpec(shape=(None, 136, 240, 12), dtype=tf.float32, name=None), name='PartAffinityFieldsHead/BiasAdd:0', description="created by layer 'PartAffinityFieldsHead'")
+INFO:sleap.nn.training:Setting up data pipelines...
+INFO:sleap.nn.training:Training set: n = 355
+INFO:sleap.nn.training:Validation set: n = 39
+INFO:sleap.nn.training:Setting up optimization...
+INFO:sleap.nn.training:  Learning rate schedule: LearningRateScheduleConfig(reduce_on_plateau=True, reduction_factor=0.5, plateau_min_delta=1e-08, plateau_patience=8, plateau_cooldown=3, min_learning_rate=1e-08)
+INFO:sleap.nn.training:  Early stopping: EarlyStoppingConfig(stop_training_on_plateau=True, plateau_min_delta=1e-08, plateau_patience=10)
+INFO:sleap.nn.training:Setting up outputs...
+INFO:sleap.nn.training:Created run path: models/baseline_medium_rf.bottomup
+INFO:sleap.nn.training:Setting up visualization...
+INFO:sleap.nn.training:Finished trainer set up. [4.4s]
+INFO:sleap.nn.training:Creating tf.data.Datasets for training data generation...
+INFO:sleap.nn.training:Finished creating training datasets. [15.4s]
+INFO:sleap.nn.training:Starting training loop...
+Epoch 1/200
+200/200 - 89s - loss: 6.3962e-04 - MultiInstanceConfmapsHead_loss: 2.2531e-04 - PartAffinityFieldsHead_loss: 4.1430e-04 - val_loss: 6.4445e-04 - val_MultiInstanceConfmapsHead_loss: 2.2814e-04 - val_PartAffinityFieldsHead_loss: 4.1631e-04
+Epoch 2/200
+200/200 - 79s - loss: 6.2752e-04 - MultiInstanceConfmapsHead_loss: 2.1804e-04 - PartAffinityFieldsHead_loss: 4.0948e-04 - val_loss: 6.4741e-04 - val_MultiInstanceConfmapsHead_loss: 2.2862e-04 - val_PartAffinityFieldsHead_loss: 4.1879e-04
+Epoch 3/200
+200/200 - 75s - loss: 6.0252e-04 - MultiInstanceConfmapsHead_loss: 2.1111e-04 - PartAffinityFieldsHead_loss: 3.9141e-04 - val_loss: 6.0709e-04 - val_MultiInstanceConfmapsHead_loss: 2.1660e-04 - val_PartAffinityFieldsHead_loss: 3.9049e-04
+Epoch 4/200
+200/200 - 75s - loss: 5.6085e-04 - MultiInstanceConfmapsHead_loss: 1.9618e-04 - PartAffinityFieldsHead_loss: 3.6467e-04 - val_loss: 5.4678e-04 - val_MultiInstanceConfmapsHead_loss: 1.9412e-04 - val_PartAffinityFieldsHead_loss: 3.5267e-04
+Epoch 5/200
+200/200 - 72s - loss: 5.2553e-04 - MultiInstanceConfmapsHead_loss: 1.8150e-04 - PartAffinityFieldsHead_loss: 3.4403e-04 - val_loss: 4.9921e-04 - val_MultiInstanceConfmapsHead_loss: 1.6975e-04 - val_PartAffinityFieldsHead_loss: 3.2946e-04
+Epoch 6/200
+200/200 - 69s - loss: 4.7562e-04 - MultiInstanceConfmapsHead_loss: 1.6134e-04 - PartAffinityFieldsHead_loss: 3.1428e-04 - val_loss: 4.8568e-04 - val_MultiInstanceConfmapsHead_loss: 1.6390e-04 - val_PartAffinityFieldsHead_loss: 3.2179e-04
+Epoch 7/200
+200/200 - 67s - loss: 4.3871e-04 - MultiInstanceConfmapsHead_loss: 1.4670e-04 - PartAffinityFieldsHead_loss: 2.9200e-04 - val_loss: 4.5131e-04 - val_MultiInstanceConfmapsHead_loss: 1.5080e-04 - val_PartAffinityFieldsHead_loss: 3.0051e-04
+Epoch 8/200
+200/200 - 73s - loss: 3.9398e-04 - MultiInstanceConfmapsHead_loss: 1.2955e-04 - PartAffinityFieldsHead_loss: 2.6443e-04 - val_loss: 4.1397e-04 - val_MultiInstanceConfmapsHead_loss: 1.3934e-04 - val_PartAffinityFieldsHead_loss: 2.7463e-04
+Epoch 9/200
+200/200 - 66s - loss: 3.6704e-04 - MultiInstanceConfmapsHead_loss: 1.1998e-04 - PartAffinityFieldsHead_loss: 2.4706e-04 - val_loss: 3.6705e-04 - val_MultiInstanceConfmapsHead_loss: 1.2035e-04 - val_PartAffinityFieldsHead_loss: 2.4669e-04
+Epoch 10/200
+200/200 - 70s - loss: 3.4052e-04 - MultiInstanceConfmapsHead_loss: 1.0943e-04 - PartAffinityFieldsHead_loss: 2.3109e-04 - val_loss: 3.4322e-04 - val_MultiInstanceConfmapsHead_loss: 1.1072e-04 - val_PartAffinityFieldsHead_loss: 2.3250e-04
+Epoch 11/200
+200/200 - 72s - loss: 3.0863e-04 - MultiInstanceConfmapsHead_loss: 9.8249e-05 - PartAffinityFieldsHead_loss: 2.1038e-04 - val_loss: 3.2854e-04 - val_MultiInstanceConfmapsHead_loss: 1.0828e-04 - val_PartAffinityFieldsHead_loss: 2.2026e-04
+Epoch 12/200
+200/200 - 75s - loss: 2.8873e-04 - MultiInstanceConfmapsHead_loss: 9.0989e-05 - PartAffinityFieldsHead_loss: 1.9774e-04 - val_loss: 3.3084e-04 - val_MultiInstanceConfmapsHead_loss: 1.0597e-04 - val_PartAffinityFieldsHead_loss: 2.2487e-04
+Epoch 13/200
+200/200 - 66s - loss: 2.6385e-04 - MultiInstanceConfmapsHead_loss: 8.1475e-05 - PartAffinityFieldsHead_loss: 1.8238e-04 - val_loss: 3.2653e-04 - val_MultiInstanceConfmapsHead_loss: 1.0489e-04 - val_PartAffinityFieldsHead_loss: 2.2164e-04
+Epoch 14/200
+200/200 - 71s - loss: 2.4718e-04 - MultiInstanceConfmapsHead_loss: 7.5552e-05 - PartAffinityFieldsHead_loss: 1.7163e-04 - val_loss: 2.9047e-04 - val_MultiInstanceConfmapsHead_loss: 9.5578e-05 - val_PartAffinityFieldsHead_loss: 1.9489e-04
+Epoch 15/200
+200/200 - 72s - loss: 2.3150e-04 - MultiInstanceConfmapsHead_loss: 7.0003e-05 - PartAffinityFieldsHead_loss: 1.6150e-04 - val_loss: 3.0522e-04 - val_MultiInstanceConfmapsHead_loss: 1.0112e-04 - val_PartAffinityFieldsHead_loss: 2.0411e-04
+Epoch 16/200
+200/200 - 73s - loss: 2.1383e-04 - MultiInstanceConfmapsHead_loss: 6.4167e-05 - PartAffinityFieldsHead_loss: 1.4966e-04 - val_loss: 2.8490e-04 - val_MultiInstanceConfmapsHead_loss: 9.1344e-05 - val_PartAffinityFieldsHead_loss: 1.9355e-04
+Epoch 17/200
+200/200 - 69s - loss: 2.0092e-04 - MultiInstanceConfmapsHead_loss: 5.9353e-05 - PartAffinityFieldsHead_loss: 1.4157e-04 - val_loss: 2.9519e-04 - val_MultiInstanceConfmapsHead_loss: 9.5524e-05 - val_PartAffinityFieldsHead_loss: 1.9966e-04
+Epoch 18/200
+200/200 - 69s - loss: 1.9020e-04 - MultiInstanceConfmapsHead_loss: 5.5683e-05 - PartAffinityFieldsHead_loss: 1.3451e-04 - val_loss: 2.9754e-04 - val_MultiInstanceConfmapsHead_loss: 9.8232e-05 - val_PartAffinityFieldsHead_loss: 1.9931e-04
+Epoch 19/200
+200/200 - 73s - loss: 1.8000e-04 - MultiInstanceConfmapsHead_loss: 5.2520e-05 - PartAffinityFieldsHead_loss: 1.2748e-04 - val_loss: 2.8358e-04 - val_MultiInstanceConfmapsHead_loss: 9.2379e-05 - val_PartAffinityFieldsHead_loss: 1.9120e-04
+Epoch 20/200
+200/200 - 70s - loss: 1.6848e-04 - MultiInstanceConfmapsHead_loss: 4.8598e-05 - PartAffinityFieldsHead_loss: 1.1988e-04 - val_loss: 3.0532e-04 - val_MultiInstanceConfmapsHead_loss: 1.0077e-04 - val_PartAffinityFieldsHead_loss: 2.0455e-04
+Epoch 21/200
+200/200 - 71s - loss: 1.5767e-04 - MultiInstanceConfmapsHead_loss: 4.4959e-05 - PartAffinityFieldsHead_loss: 1.1271e-04 - val_loss: 2.7957e-04 - val_MultiInstanceConfmapsHead_loss: 9.2448e-05 - val_PartAffinityFieldsHead_loss: 1.8712e-04
+Epoch 22/200
+200/200 - 70s - loss: 1.5126e-04 - MultiInstanceConfmapsHead_loss: 4.2953e-05 - PartAffinityFieldsHead_loss: 1.0831e-04 - val_loss: 2.7988e-04 - val_MultiInstanceConfmapsHead_loss: 9.3725e-05 - val_PartAffinityFieldsHead_loss: 1.8615e-04
+Epoch 23/200
+200/200 - 71s - loss: 1.4368e-04 - MultiInstanceConfmapsHead_loss: 3.9950e-05 - PartAffinityFieldsHead_loss: 1.0373e-04 - val_loss: 2.7414e-04 - val_MultiInstanceConfmapsHead_loss: 8.9737e-05 - val_PartAffinityFieldsHead_loss: 1.8440e-04
+Epoch 24/200
+200/200 - 68s - loss: 1.3817e-04 - MultiInstanceConfmapsHead_loss: 3.8530e-05 - PartAffinityFieldsHead_loss: 9.9636e-05 - val_loss: 2.6689e-04 - val_MultiInstanceConfmapsHead_loss: 8.6188e-05 - val_PartAffinityFieldsHead_loss: 1.8071e-04
+Epoch 25/200
+200/200 - 70s - loss: 1.2533e-04 - MultiInstanceConfmapsHead_loss: 3.4587e-05 - PartAffinityFieldsHead_loss: 9.0741e-05 - val_loss: 2.7651e-04 - val_MultiInstanceConfmapsHead_loss: 9.2159e-05 - val_PartAffinityFieldsHead_loss: 1.8435e-04
+Epoch 26/200
+200/200 - 76s - loss: 1.2312e-04 - MultiInstanceConfmapsHead_loss: 3.3695e-05 - PartAffinityFieldsHead_loss: 8.9426e-05 - val_loss: 2.8330e-04 - val_MultiInstanceConfmapsHead_loss: 9.1174e-05 - val_PartAffinityFieldsHead_loss: 1.9213e-04
+Epoch 27/200
+200/200 - 67s - loss: 1.1898e-04 - MultiInstanceConfmapsHead_loss: 3.2250e-05 - PartAffinityFieldsHead_loss: 8.6728e-05 - val_loss: 2.7126e-04 - val_MultiInstanceConfmapsHead_loss: 8.9389e-05 - val_PartAffinityFieldsHead_loss: 1.8187e-04
+Epoch 28/200
+200/200 - 72s - loss: 1.1077e-04 - MultiInstanceConfmapsHead_loss: 2.9905e-05 - PartAffinityFieldsHead_loss: 8.0870e-05 - val_loss: 2.5181e-04 - val_MultiInstanceConfmapsHead_loss: 8.3139e-05 - val_PartAffinityFieldsHead_loss: 1.6867e-04
+Epoch 29/200
+200/200 - 71s - loss: 1.0680e-04 - MultiInstanceConfmapsHead_loss: 2.8886e-05 - PartAffinityFieldsHead_loss: 7.7917e-05 - val_loss: 2.9137e-04 - val_MultiInstanceConfmapsHead_loss: 9.8224e-05 - val_PartAffinityFieldsHead_loss: 1.9314e-04
+Epoch 30/200
+200/200 - 70s - loss: 1.0134e-04 - MultiInstanceConfmapsHead_loss: 2.7311e-05 - PartAffinityFieldsHead_loss: 7.4030e-05 - val_loss: 2.7661e-04 - val_MultiInstanceConfmapsHead_loss: 9.0882e-05 - val_PartAffinityFieldsHead_loss: 1.8573e-04
+Epoch 31/200
+200/200 - 71s - loss: 1.0051e-04 - MultiInstanceConfmapsHead_loss: 2.6672e-05 - PartAffinityFieldsHead_loss: 7.3836e-05 - val_loss: 2.6397e-04 - val_MultiInstanceConfmapsHead_loss: 8.5919e-05 - val_PartAffinityFieldsHead_loss: 1.7805e-04
+Epoch 32/200
+200/200 - 71s - loss: 9.4513e-05 - MultiInstanceConfmapsHead_loss: 2.4997e-05 - PartAffinityFieldsHead_loss: 6.9516e-05 - val_loss: 2.7296e-04 - val_MultiInstanceConfmapsHead_loss: 9.1248e-05 - val_PartAffinityFieldsHead_loss: 1.8171e-04
+Epoch 33/200
+200/200 - 73s - loss: 9.1392e-05 - MultiInstanceConfmapsHead_loss: 2.4054e-05 - PartAffinityFieldsHead_loss: 6.7338e-05 - val_loss: 2.7507e-04 - val_MultiInstanceConfmapsHead_loss: 9.1216e-05 - val_PartAffinityFieldsHead_loss: 1.8385e-04
+Epoch 34/200
+200/200 - 73s - loss: 9.2432e-05 - MultiInstanceConfmapsHead_loss: 2.4204e-05 - PartAffinityFieldsHead_loss: 6.8228e-05 - val_loss: 2.6448e-04 - val_MultiInstanceConfmapsHead_loss: 8.6496e-05 - val_PartAffinityFieldsHead_loss: 1.7798e-04
+Epoch 35/200
+200/200 - 74s - loss: 8.5027e-05 - MultiInstanceConfmapsHead_loss: 2.2436e-05 - PartAffinityFieldsHead_loss: 6.2591e-05 - val_loss: 2.6061e-04 - val_MultiInstanceConfmapsHead_loss: 8.7625e-05 - val_PartAffinityFieldsHead_loss: 1.7298e-04
+Epoch 36/200
+200/200 - 72s - loss: 8.2757e-05 - MultiInstanceConfmapsHead_loss: 2.1513e-05 - PartAffinityFieldsHead_loss: 6.1244e-05 - val_loss: 2.6520e-04 - val_MultiInstanceConfmapsHead_loss: 8.8336e-05 - val_PartAffinityFieldsHead_loss: 1.7686e-04
+
+Epoch 00036: ReduceLROnPlateau reducing learning rate to 4.999999873689376e-05.
+Epoch 37/200
+200/200 - 78s - loss: 6.8083e-05 - MultiInstanceConfmapsHead_loss: 1.6718e-05 - PartAffinityFieldsHead_loss: 5.1364e-05 - val_loss: 2.6508e-04 - val_MultiInstanceConfmapsHead_loss: 8.8462e-05 - val_PartAffinityFieldsHead_loss: 1.7662e-04
+Epoch 38/200
+200/200 - 72s - loss: 6.2989e-05 - MultiInstanceConfmapsHead_loss: 1.5077e-05 - PartAffinityFieldsHead_loss: 4.7912e-05 - val_loss: 2.6809e-04 - val_MultiInstanceConfmapsHead_loss: 8.9635e-05 - val_PartAffinityFieldsHead_loss: 1.7846e-04
+Epoch 00038: early stopping
+INFO:sleap.nn.training:Finished training loop. [51.2 min]
+INFO:sleap.nn.training:Deleting visualization directory: models/baseline_medium_rf.bottomup/viz
+INFO:sleap.nn.training:Saving evaluation metrics to model folder...
+Predicting... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% ETA: 0:00:00 3.1 FPS
+INFO:sleap.nn.evals:Saved predictions: models/baseline_medium_rf.bottomup/labels_pr.train.slp
+INFO:sleap.nn.evals:Saved metrics: models/baseline_medium_rf.bottomup/metrics.train.npz
+INFO:sleap.nn.evals:OKS mAP: 0.741390
+Predicting... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% ETA: 0:00:00 12.5 FPS
+INFO:sleap.nn.evals:Saved predictions: models/baseline_medium_rf.bottomup/labels_pr.val.slp
+INFO:sleap.nn.evals:Saved metrics: models/baseline_medium_rf.bottomup/metrics.val.npz
+INFO:sleap.nn.evals:OKS mAP: 0.154310
+inference /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_161341_omission_subject_6_1_and_6_3.rec/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:08.104147
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_161341_omission_subject_6_1_and_6_3.rec/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_161341_omission_subject_6_1_and_6_3.rec/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:10.842041
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_161341_omission_subject_6_1_and_6_3.rec/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_161341_omission_subject_6_1_and_6_3.rec/20221122_161341_omission_subject_6_1_and_6_3.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_164720_competition_subject_6_1_and_6_3.rec/20221122_164720_competition_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:13.523470
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_164720_competition_subject_6_1_and_6_3.rec/20221122_164720_competition_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221122_164720_competition_6_1_and_6_3.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_164720_competition_subject_6_1_and_6_3.rec/20221122_164720_competition_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:16.399464
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_164720_competition_subject_6_1_and_6_3.rec/20221122_164720_competition_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221122_164720_competition_6_1_and_6_3.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221122_164720_competition_subject_6_1_and_6_3.rec/20221122_164720_competition_6_1_and_6_3.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_113957_omission_subject_6_1_and_6_4.rec/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:19.264842
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_113957_omission_subject_6_1_and_6_4.rec/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_113957_omission_subject_6_1_and_6_4.rec/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:22.098288
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_113957_omission_subject_6_1_and_6_4.rec/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_113957_omission_subject_6_1_and_6_4.rec/20221123_113957_omission_subject_6_1_and_6_4.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_122652_competition_subject_6_1_and_6_4.rec/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:24.853231
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_122652_competition_subject_6_1_and_6_4.rec/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_122652_competition_subject_6_1_and_6_4.rec/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:27.589597
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_122652_competition_subject_6_1_and_6_4.rec/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221123_122652_competition_subject_6_1_and_6_4.rec/20221123_122652_competition_subject_6_1_and_6_4.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:30.441071
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:33.238964
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_144832_omission_subject_6_1_and_6_2.rec/20221125_144832_omission_and_competition_subejct_6_1_and_6_2.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_152723_competition_subject_6_1_and_6_2.rec/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:35.982882
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_152723_competition_subject_6_1_and_6_2.rec/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_152723_competition_subject_6_1_and_6_2.rec/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:38.824501
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_152723_competition_subject_6_1_and_6_2.rec/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221125_152723_competition_subject_6_1_and_6_2.rec/20221125_152723_competition_subject_6_1_and_6_2.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221202_134600_omission_and_competition_subject_6_1_and_6_2.rec/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:41.637697
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221202_134600_omission_and_competition_subject_6_1_and_6_2.rec/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221202_134600_omission_and_competition_subject_6_1_and_6_2.rec/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:44.397944
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221202_134600_omission_and_competition_subject_6_1_and_6_2.rec/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221202_134600_omission_and_competition_subject_6_1_and_6_2.rec/20221202_134600_omission_and_competition_subject_6_1_and_6_2.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221203_154800_omission_and_competition_subject_6_4_and_6_1.rec/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:47.246203
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221203_154800_omission_and_competition_subject_6_4_and_6_1.rec/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221203_154800_omission_and_competition_subject_6_4_and_6_1.rec/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:50.051539
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221203_154800_omission_and_competition_subject_6_4_and_6_1.rec/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221203_154800_omission_and_competition_subject_6_4_and_6_1.rec/20221203_154800_omission_and_competition_subject_6_4_and_6_1.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221214_125409_om_and_comp_6_1_and_6_3.rec/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:52.847476
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221214_125409_om_and_comp_6_1_and_6_3.rec/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221214_125409_om_and_comp_6_1_and_6_3.rec/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:55.758567
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221214_125409_om_and_comp_6_1_and_6_3.rec/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221214_125409_om_and_comp_6_1_and_6_3.rec/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221215_145401_comp_amd_om_6_1_and_6_3.rec/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:44:58.613020
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221215_145401_comp_amd_om_6_1_and_6_3.rec/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.2_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 2,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 2,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221215_145401_comp_amd_om_6_1_and_6_3.rec/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4
+Started inference at: 2023-05-21 21:45:01.470130
+Args:
+{
+│   'data_path': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221215_145401_comp_amd_om_6_1_and_6_3.rec/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4',
+│   'models': [
+│   │   '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+│   ],
+│   'frames': '',
+│   'only_labeled_frames': False,
+│   'only_suggested_frames': False,
+│   'output': '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.1_subj.round_5.predicted_frames.slp',
+│   'no_empty_frames': False,
+│   'verbosity': 'rich',
+│   'video.dataset': None,
+│   'video.input_format': 'channels_last',
+│   'video.index': '',
+│   'cpu': False,
+│   'first_gpu': False,
+│   'last_gpu': False,
+│   'gpu': 'auto',
+│   'max_edge_length_ratio': 0.25,
+│   'dist_penalty_weight': 1.0,
+│   'batch_size': 4,
+│   'open_in_gui': False,
+│   'peak_threshold': 0.2,
+│   'tracking.tracker': 'flow',
+│   'tracking.target_instance_count': 1,
+│   'tracking.pre_cull_to_target': None,
+│   'tracking.pre_cull_iou_threshold': None,
+│   'tracking.post_connect_single_breaks': None,
+│   'tracking.clean_instance_count': 1,
+│   'tracking.clean_iou_threshold': None,
+│   'tracking.similarity': 'iou',
+│   'tracking.match': 'greedy',
+│   'tracking.track_window': None,
+│   'tracking.min_new_track_points': None,
+│   'tracking.min_match_points': None,
+│   'tracking.img_scale': None,
+│   'tracking.of_window_size': None,
+│   'tracking.of_max_levels': None,
+│   'tracking.save_shifted_instances': None,
+│   'tracking.kf_node_indices': None,
+│   'tracking.kf_init_frame_count': None
+}
+
+INFO:sleap.nn.inference:Auto-selected GPU 0 with 11006 MiB of free memory.
+Versions:
+SLEAP: 1.2.9
+TensorFlow: 2.6.3
+Numpy: 1.19.5
+Python: 3.7.12
+OS: Linux-5.15.0-71-generic-x86_64-with-debian-bullseye-sid
+
+System:
+GPUs: 1/1 available
+  Device: /physical_device:GPU:0
+         Available: True
+        Initalized: False
+     Memory growth: True
+
+Video: /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good/20221215_145401_comp_amd_om_6_1_and_6_3.rec/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4
+rendering /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/data/good
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/*.predicted_frames.slp
+Saving config: /home/riwata/.sleap/1.2.9/preferences.yaml
+All Done!

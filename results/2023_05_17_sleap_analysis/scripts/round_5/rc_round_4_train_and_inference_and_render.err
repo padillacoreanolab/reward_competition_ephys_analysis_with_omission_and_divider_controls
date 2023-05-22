@@ -1,0 +1,398 @@
+2023-05-21 20:51:55.496763: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-21 20:51:56.497078: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9651 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 2080 Ti, pci bus id: 0000:03:00.0, compute capability: 7.5
+2023-05-21 20:51:56.847024: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2023-05-21 20:51:59.053238: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: -33 } dim { size: -34 } dim { size: -35 } dim { size: 1 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "GPU" vendor: "NVIDIA" model: "NVIDIA GeForce RTX 2080 Ti" frequency: 1545 num_cores: 68 environment { key: "architecture" value: "7.5" } environment { key: "cuda" value: "11020" } environment { key: "cudnn" value: "8100" } num_registers: 65536 l1_cache_size: 24576 l2_cache_size: 5767168 shared_memory_size_per_multiprocessor: 65536 memory_size: 10119938048 bandwidth: 616000000 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -36 } dim { size: -37 } dim { size: 1 } } }
+2023-05-21 20:51:59.816595: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: -33 } dim { size: -34 } dim { size: -35 } dim { size: 1 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "GPU" vendor: "NVIDIA" model: "NVIDIA GeForce RTX 2080 Ti" frequency: 1545 num_cores: 68 environment { key: "architecture" value: "7.5" } environment { key: "cuda" value: "11020" } environment { key: "cudnn" value: "8100" } num_registers: 65536 l1_cache_size: 24576 l2_cache_size: 5767168 shared_memory_size_per_multiprocessor: 65536 memory_size: 10119938048 bandwidth: 616000000 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -36 } dim { size: -37 } dim { size: 1 } } }
+2023-05-21 20:52:18.209727: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8201
+2023-05-21 20:53:45.402370: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.402708: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.578160: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.578244: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.628185: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.628368: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.744326: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.744476: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.760883: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:45.761136: W tensorflow/core/common_runtime/bfc_allocator.cc:272] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.38GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2023-05-21 20:53:47.750220: W tensorflow/core/common_runtime/bfc_allocator.cc:338] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you'd like to disable this feature.
+2023-05-21 21:43:29.570026: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: -65 } dim { size: -66 } dim { size: -67 } dim { size: 1 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "GPU" vendor: "NVIDIA" model: "NVIDIA GeForce RTX 2080 Ti" frequency: 1545 num_cores: 68 environment { key: "architecture" value: "7.5" } environment { key: "cuda" value: "11020" } environment { key: "cudnn" value: "8100" } num_registers: 65536 l1_cache_size: 24576 l2_cache_size: 5767168 shared_memory_size_per_multiprocessor: 65536 memory_size: 10119938048 bandwidth: 616000000 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -68 } dim { size: -69 } dim { size: 1 } } }
+2023-05-21 21:43:46.307997: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: -65 } dim { size: -66 } dim { size: -67 } dim { size: 1 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "GPU" vendor: "NVIDIA" model: "NVIDIA GeForce RTX 2080 Ti" frequency: 1545 num_cores: 68 environment { key: "architecture" value: "7.5" } environment { key: "cuda" value: "11020" } environment { key: "cudnn" value: "8100" } num_registers: 65536 l1_cache_size: 24576 l2_cache_size: 5767168 shared_memory_size_per_multiprocessor: 65536 memory_size: 10119938048 bandwidth: 616000000 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -68 } dim { size: -69 } dim { size: 1 } } }
+2023-05-21 21:43:51.696994: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: -65 } dim { size: -66 } dim { size: -67 } dim { size: 1 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "GPU" vendor: "NVIDIA" model: "NVIDIA GeForce RTX 2080 Ti" frequency: 1545 num_cores: 68 environment { key: "architecture" value: "7.5" } environment { key: "cuda" value: "11020" } environment { key: "cudnn" value: "8100" } num_registers: 65536 l1_cache_size: 24576 l2_cache_size: 5767168 shared_memory_size_per_multiprocessor: 65536 memory_size: 10119938048 bandwidth: 616000000 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -68 } dim { size: -69 } dim { size: 1 } } }
+2023-05-21 21:43:54.532176: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_FLOAT } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_FLOAT shape { dim { size: -65 } dim { size: -66 } dim { size: -67 } dim { size: 1 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "GPU" vendor: "NVIDIA" model: "NVIDIA GeForce RTX 2080 Ti" frequency: 1545 num_cores: 68 environment { key: "architecture" value: "7.5" } environment { key: "cuda" value: "11020" } environment { key: "cudnn" value: "8100" } num_registers: 65536 l1_cache_size: 24576 l2_cache_size: 5767168 shared_memory_size_per_multiprocessor: 65536 memory_size: 10119938048 bandwidth: 616000000 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -68 } dim { size: -69 } dim { size: 1 } } }
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-track", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-track')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4656, in main
+    predictor = _make_predictor_from_cli(args)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4556, in _make_predictor_from_cli
+    progress_reporting=args.verbosity,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 4170, in load_model
+    batch_size=batch_size,
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in from_model_paths
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/inference.py", line 151, in <listcomp>
+    model_configs = [sleap.load_config(model_path) for model_path in model_paths]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 158, in load_config
+    filename, load_training_config=load_training_config
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/nn/config/training_job.py", line 119, in load_json
+    with open(filename, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/models/round_5/baseline_medium_rf.bottomup'
+Traceback (most recent call last):
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/bin/sleap-render", line 33, in <module>
+    sys.exit(load_entry_point('sleap==1.2.9', 'console_scripts', 'sleap-render')())
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/io/visuals.py", line 700, in main
+    args.data_path, video_search=[os.path.dirname(args.data_path)]
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/io/dataset.py", line 1950, in load_file
+    filename, for_object="labels", video_search=video_search, *args, **kwargs
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/io/format/main.py", line 113, in read
+    return disp.read(filename, *args, **kwargs)
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/io/format/dispatch.py", line 53, in read
+    with self.open(filename) as file:
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/io/format/filehandle.py", line 30, in __enter__
+    self.open()
+  File "/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/bin/conda_environment/sleap_1_2_9_env/lib/python3.7/site-packages/sleap/io/format/filehandle.py", line 39, in open
+    raise FileNotFoundError(f"Could not find {self.filename}")
+FileNotFoundError: Could not find /nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_05_17_sleap_analysis/proc/predicted_frames/round_5/*.predicted_frames.slp

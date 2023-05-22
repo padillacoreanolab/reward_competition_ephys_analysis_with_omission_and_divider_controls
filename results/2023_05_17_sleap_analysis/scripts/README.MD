@@ -1,0 +1,21 @@
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221122_164720_competition_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_2.pkg.slp
+- UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte
+
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221122_164720_competition_6_1_and_6_3.1.fixed.round_1.mp4.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_2.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_3.pkg.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_3.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221214_125409_om_and_comp_6_1_and_6_3.1.fixed.mp4.round_1.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_2.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_3.pkg.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4.labeled_predictions.round_3.pkg.slp
+-
+/nancy/projects/reward_competition_ephys_analysis_with_omission_and_divider_controls/results/2023_01_12_rc_sleap/proc/sleap_labels/round_3/20221215_145401_comp_amd_om_6_1_and_6_3.1.fixed.mp4.round_1.pkg.slp
+-
